@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool isAnagram(const std::string& s, const std::string& t) {
+    // If the strings have different lengths, they cannot be anagrams
+    if (s.size() != t.size()) {
+        return false;
+    }
+
+    // Sort both strings and compare them
+    std::string sortedS = s;
+    std::string sortedT = t;
+    std::sort(sortedS.begin(), sortedS.end());
+    std::sort(sortedT.begin(), sortedT.end());
+
+    return sortedS == sortedT;
+}
+
+int main() {
+    std::string s = "anagram";
+    std::string t = "nagaram";
+    if (isAnagram(s, t)) {
+        std::cout << "The strings are anagrams." << std::endl;
+    } else {
+        std::cout << "The strings are not anagrams." << std::endl;
+    }
+    return 0;
+}
